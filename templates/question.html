@@ -1,0 +1,31 @@
+{% extends "inc/base.html" %}
+{% load static %}
+
+{% block links %}
+
+<link href="{% static 'css/question_style.css' %}" rel="stylesheet">
+<link href="{% static 'css/answer_style.css' %}" rel="stylesheet">
+<link href="{% static 'css/input_form_style.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+
+{% include 'inc/question_item.html' %}
+
+
+{% for answer in answers %}
+  {% include 'inc/answer_item.html' %}
+{% endfor %}
+
+
+{% include 'inc/paginator.html' %}
+
+<div class="bborder"></div>
+
+<form class="enter-answer">
+  <textarea placeholder="Enter your answer here..." id="new_answer"></textarea>
+  <button class="dblock mleft mbottom btn btn-success">Answer</button>
+</form>
+
+{% endblock %}
